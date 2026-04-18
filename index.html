@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -9,19 +8,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&family=Itim&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* โทนสีใหม่ตามรูปภาพ: Vintage Dusty Rose & Cream */
-            --soft-pink: #F9F1F1; /* พื้นหลังชมพูครีมหม่น */
-            --matcha-green: #F4EBE8; /* สีครีมเบจหม่น */
-            --sakura-pink: #E8B4B8; /* ชมพู Dusty Rose (สีหลัก) */
-            --deep-sakura: #A4777E; /* ชมพูเข้มหม่น สำหรับข้อความ/ปุ่ม */
-            --text-brown: #7D5A5A; /* น้ำตาลหม่นโทนอุ่น */
-            --glass-white: rgba(255, 255, 255, 0.88);
+            /* Vintage Pink Palette from Image */
+            --soft-pink: #fdf5f6;
+            --vintage-cream: #faf3f0;
+            --sakura-pink: #eebecb;
+            --deep-sakura: #d48a98;
+            --text-brown: #5d4037;
+            --glass-white: rgba(255, 255, 255, 0.9);
             
-            /* Chart Colors (โทนหม่นให้เข้ากับรูป) */
-            --c-5: #E8B4B8;
-            --c-4: #F0D1D4;
-            --c-3: #F4E1E3;
-            --c-low: #F9F1F1;
+            /* Chart Colors - Muted Tones */
+            --c-5: #d48a98;
+            --c-4: #eebecb;
+            --c-3: #f3d1d9;
+            --c-low: #f9ebed;
         }
 
         body {
@@ -31,8 +30,8 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-            /* ปรับลายพื้นหลังให้จางลงแบบวินเทจ */
-            background-image: radial-gradient(#E8B4B8 0.5px, transparent 0.5px);
+            /* Subtle vintage pattern */
+            background-image: radial-gradient(#eebecb 0.8px, transparent 0.8px);
             background-size: 24px 24px;
         }
 
@@ -58,9 +57,9 @@
         }
         .petal {
             position: absolute;
-            background-color: #E8B4B8; /* สีกลีบดอกไม้โทนหม่น */
+            background-color: #f3d1d9;
             border-radius: 150% 0 150% 0;
-            opacity: 0.4;
+            opacity: 0.5;
             animation: fall linear infinite;
         }
         @keyframes fall {
@@ -72,18 +71,18 @@
             background: var(--glass-white);
             border: 2px dashed var(--sakura-pink);
             border-radius: 24px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 25px rgba(125, 90, 90, 0.1);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 25px rgba(212, 138, 152, 0.15);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .kawaii-card:hover { transform: scale(1.01); }
+        .kawaii-card:hover { transform: translateY(-2px); }
 
         .btn-kawaii {
             background: linear-gradient(135deg, var(--sakura-pink), var(--deep-sakura));
             color: white;
             border: none;
             border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(164, 119, 126, 0.3);
+            box-shadow: 0 4px 15px rgba(212, 138, 152, 0.3);
             transition: all 0.2s;
             cursor: pointer;
         }
@@ -93,11 +92,12 @@
             font-size: 2rem;
             cursor: pointer;
             transition: transform 0.2s, filter 0.2s;
-            filter: grayscale(1) opacity(0.5);
+            filter: grayscale(1) brightness(1.1) opacity(0.5);
         }
         .sakura-rating.active {
             filter: grayscale(0) drop-shadow(0 0 5px var(--sakura-pink));
             transform: scale(1.1) rotate(10deg);
+            opacity: 1;
         }
 
         .filter-chip {
@@ -106,25 +106,23 @@
             font-size: 0.8rem;
             border: 1.5px solid var(--sakura-pink);
             background: white;
-            color: var(--text-brown);
             transition: all 0.2s;
+            color: var(--deep-sakura);
         }
         .filter-chip.active {
-            background: var(--sakura-pink);
+            background: var(--deep-sakura);
             color: white;
-            border-color: var(--sakura-pink);
+            border-color: var(--deep-sakura);
         }
 
         .lace-top {
             width: 100%;
             height: 30px;
-            /* ปรับสีลูกไม้ให้เป็นโทน Dusty Pink */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0 20 C 10 0, 15 0, 25 20 C 35 0, 40 0, 50 20 C 60 0, 65 0, 75 20 C 85 0, 90 0, 100 20 L 100 20 L 0 20 Z" fill="%23E8B4B8"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0 20 C 10 0, 15 0, 25 20 C 35 0, 40 0, 50 20 C 60 0, 65 0, 75 20 C 85 0, 90 0, 100 20 L 100 20 L 0 20 Z" fill="%23eebecb"/></svg>');
             background-size: 60px 20px;
             transform: rotate(180deg);
         }
 
-        /* --- Updated Chart Styles --- */
         .chart-wrapper {
             position: relative;
             width: 85px; 
@@ -148,13 +146,11 @@
             box-shadow: inset 0 2px 5px rgba(0,0,0,0.03);
         }
 
-        /* Bubble Style */
         .speech-bubble {
             position: relative;
             background: #ffffff;
             border-radius: 20px;
             border: 2px solid var(--sakura-pink);
-            color: var(--text-brown);
         }
         .speech-bubble::after {
             content: '';
@@ -170,11 +166,11 @@
 
         .view-fade { animation: fadeIn 0.4s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        /* สีกรอบและเงาแบบนุ่มนวล */
-        .border-pink-custom { border-color: var(--sakura-pink); }
-        .text-pink-custom { color: var(--deep-sakura); }
-        .bg-pink-custom { background-color: var(--sakura-pink); }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--soft-pink); }
+        ::-webkit-scrollbar-thumb { background: var(--sakura-pink); border-radius: 10px; }
     </style>
 </head>
 <body>
@@ -189,73 +185,67 @@
         <!-- View 1: Home -->
         <div id="home-view" class="view-fade">
             <header class="text-center mb-6">
-                <!-- Badges (ปุ่มกลมเล็กๆ ด้านบน - ปรับสีตามโทนหม่น) -->
                 <div class="flex justify-center gap-2 mb-3">
-                    <div class="w-3 h-3 rounded-full bg-[#E8B4B8] border border-white shadow-sm"></div>
-                    <div class="w-3 h-3 rounded-full bg-[#F4EBE8] border border-white shadow-sm"></div>
-                    <div class="w-3 h-3 rounded-full bg-[#A4777E] border border-white shadow-sm"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#d48a98] border border-white shadow-sm"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#eebecb] border border-white shadow-sm"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#f3d1d9] border border-white shadow-sm"></div>
                 </div>
-                <h1 class="text-3xl font-bold text-pink-custom font-handwriting tracking-wide">Poe's Shop Review</h1>
-                <p class="text-xs text-pink-400 mt-1 opacity-80 uppercase tracking-widest font-bold" style="color: var(--deep-sakura);">ขอบคุณทุกๆ รีวิวเลยนะค้าบ 🌸</p>
+                <h1 class="text-3xl font-bold text-[#d48a98] font-handwriting tracking-wide">Nongper  Review</h1>
+                <p class="text-xs text-[#d48a98] mt-1 opacity-70 uppercase tracking-widest font-bold">ขอบคุณทุกๆ รีวิวเลยนะค้าบ 🌸</p>
             </header>
 
             <!-- Hero Image -->
             <div class="relative mb-6 group">
-                <div class="absolute -inset-1 bg-gradient-to-r from-[#E8B4B8] to-[#F4EBE8] rounded-[30px] blur opacity-40"></div>
+                <div class="absolute -inset-1 bg-gradient-to-r from-[#eebecb] to-[#faf3f0] rounded-[30px] blur opacity-40"></div>
                 <div class="relative bg-white rounded-[25px] overflow-hidden border-4 border-white shadow-lg">
-                    <!-- รูปภาพหลัก (ใช้รูปเดิมแต่เพิ่ม filter ให้นุ่มนวลขึ้น) -->
-                    <img src="https://i.postimg.cc/m2V0NmPC/b398ccae2e83ac5d6f33d737e46f6849.jpg" alt="Poe Shop" class="w-full opacity-90">
+                    <!-- ใช้รูปที่ลูกค้าส่งมา -->
+                    <img src="https://i.postimg.cc/m2V0NmPC/b398ccae2e83ac5d6f33d737e46f6849.jpg" alt="Poe Shop" class="w-full grayscale-[10%] sepia-[10%]">
                 </div>
-                <div class="absolute -top-4 -right-2 float-icon text-3xl">🐾</div>
+                <div class="absolute -top-4 -right-2 float-icon text-3xl">🌸</div>
                 <div class="absolute -bottom-4 -left-2 float-icon text-3xl" style="animation-delay: 1s;">🐈</div>
             </div>
 
             <!-- Sweet Welcome Message -->
             <div class="mb-8 relative px-2">
                 <div class="flex items-end gap-3">
-                    <!-- Cute Mascot Icon -->
-                    <div class="flex-shrink-0 bg-white p-2 rounded-2xl border-2 border-pink-100 shadow-sm float-icon" style="border-color: var(--sakura-pink);">
+                    <div class="flex-shrink-0 bg-white p-2 rounded-2xl border-2 border-pink-50 shadow-sm float-icon">
                         <span class="text-3xl">🐇</span>
                     </div>
-                    <!-- Speech Bubble -->
-                    <div class="speech-bubble flex-grow p-3 shadow-sm bg-white/90">
-                        <p class="text-[11px] leading-tight font-bold italic" style="color: var(--text-brown);">
-                             "ขอบคุณที่มาอุดหนุนร้านเล็กๆของเป้อนะค้าบ🎀✨️"
+                    <div class="speech-bubble flex-grow p-3 shadow-sm bg-white/80">
+                        <p class="text-[11px] leading-tight text-[#d48a98] font-bold italic">
+                             "ขอบคุณที่มาอุดหนุนร้านเล็กๆของเป้อนะค้าบ ยินดีรับฟังทุกคำติชมเยย🎀✨️"
                         </p>
                     </div>
                 </div>
-                <!-- Floating hearts -->
-                <div class="absolute -right-1 -top-2 text-xs pulse-kawaii">🤎</div>
+                <div class="absolute -right-1 -top-2 text-xs pulse-kawaii">💕</div>
                 <div class="absolute right-4 bottom-0 text-[10px] pulse-kawaii" style="animation-delay: 1s;">✨</div>
             </div>
 
             <!-- Dashboard Stats -->
             <div class="kawaii-card p-5 mb-6">
-                <div class="flex justify-between items-end mb-4 border-b border-pink-50 pb-2" style="border-color: var(--sakura-pink);">
-                    <h3 class="text-xs font-bold flex items-center gap-2" style="color: var(--deep-sakura);">
+                <div class="flex justify-between items-end mb-4 border-b border-pink-50 pb-2">
+                    <h3 class="text-xs font-bold text-[#d48a98] flex items-center gap-2">
                         <span class="text-lg">📊</span> สรุปความประทับใจ
                     </h3>
                     <div class="text-right">
                         <p class="text-[9px] text-gray-400 uppercase tracking-widest font-bold">TOTAL REVIEWS</p>
-                        <p class="text-2xl font-bold leading-none" id="total-count" style="color: var(--deep-sakura);">0</p>
+                        <p class="text-2xl font-bold text-[#d48a98] leading-none" id="total-count">0</p>
                     </div>
                 </div>
 
                 <div class="flex items-center justify-around gap-2">
-                    <!-- Multi-color Donut Chart -->
                     <div id="multi-chart" class="chart-wrapper flex-shrink-0 border-4 border-white shadow-sm">
                         <div class="chart-center">
-                            <span id="percent-display" class="text-sm font-bold leading-none" style="color: var(--deep-sakura);">0%</span>
-                            <span class="text-[7px] font-bold" style="color: var(--sakura-pink);">Satisfied</span>
+                            <span id="percent-display" class="text-sm font-bold text-[#d48a98] leading-none">0%</span>
+                            <span class="text-[7px] text-[#eebecb] font-bold">Satisfied</span>
                         </div>
                     </div>
 
-                    <!-- Enhanced Raw Data with % -->
                     <div class="flex-grow grid grid-cols-2 gap-x-3 gap-y-2 max-w-[180px]">
                         <div class="flex flex-col">
                             <div class="flex justify-between items-center mb-0.5">
                                 <span class="text-[10px] flex items-center gap-1">🌸 5</span>
-                                <span id="count-5" class="text-[11px] font-bold" style="color: var(--deep-sakura);">0</span>
+                                <span id="count-5" class="text-[11px] font-bold text-[#d48a98]">0</span>
                             </div>
                             <div class="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
                                 <div id="bar-5" class="h-full bg-[var(--c-5)]" style="width: 0%"></div>
@@ -265,7 +255,7 @@
                         <div class="flex flex-col">
                             <div class="flex justify-between items-center mb-0.5">
                                 <span class="text-[10px] flex items-center gap-1">🌸 4</span>
-                                <span id="count-4" class="text-[11px] font-bold" style="color: var(--deep-sakura);">0</span>
+                                <span id="count-4" class="text-[11px] font-bold text-[#d48a98]">0</span>
                             </div>
                             <div class="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
                                 <div id="bar-4" class="h-full bg-[var(--c-4)]" style="width: 0%"></div>
@@ -275,7 +265,7 @@
                         <div class="flex flex-col">
                             <div class="flex justify-between items-center mb-0.5">
                                 <span class="text-[10px] flex items-center gap-1">🌸 3</span>
-                                <span id="count-3" class="text-[11px] font-bold" style="color: var(--deep-sakura);">0</span>
+                                <span id="count-3" class="text-[11px] font-bold text-[#d48a98]">0</span>
                             </div>
                             <div class="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
                                 <div id="bar-3" class="h-full bg-[var(--c-3)]" style="width: 0%"></div>
@@ -285,7 +275,7 @@
                         <div class="flex flex-col">
                             <div class="flex justify-between items-center mb-0.5">
                                 <span class="text-[10px] flex items-center gap-1">🌸 2-1</span>
-                                <span id="count-low" class="text-[11px] font-bold" style="color: var(--deep-sakura);">0</span>
+                                <span id="count-low" class="text-[11px] font-bold text-[#d48a98]">0</span>
                             </div>
                             <div class="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
                                 <div id="bar-low" class="h-full bg-[var(--c-low)]" style="width: 0%"></div>
@@ -300,7 +290,7 @@
 
             <!-- Review Input -->
             <div class="kawaii-card p-6 mb-8">
-                <h3 class="text-center font-bold text-lg mb-4 font-handwriting" style="color: var(--deep-sakura);">ส่งรีวิวให้ร้านเป้อ 💬</h3>
+                <h3 class="text-center font-bold text-lg mb-4 text-[#d48a98] font-handwriting">ส่งรีวิวให้ร้านเป้อ 💬</h3>
                 <div class="flex justify-center gap-2 mb-5" id="rating-input">
                     <span class="sakura-rating" data-value="1">🌸</span>
                     <span class="sakura-rating" data-value="2">🌸</span>
@@ -310,9 +300,9 @@
                 </div>
                 <div class="space-y-4">
                     <input type="text" id="reviewer-name" placeholder="ชื่อเล่นของคุณ..." 
-                        class="w-full px-4 py-3 bg-white/70 rounded-2xl border border-pink-100 focus:ring-2 focus:ring-[#E8B4B8] outline-none text-sm" style="border-color: var(--sakura-pink);">
+                        class="w-full px-4 py-3 bg-white/70 rounded-2xl border border-pink-100 focus:ring-2 focus:ring-[#eebecb] outline-none text-sm text-[#5d4037]">
                     <textarea id="review-comment" placeholder="ความประทับใจต่อทางร้าน..." rows="3" 
-                        class="w-full px-4 py-3 bg-white/70 rounded-2xl border border-pink-100 focus:ring-2 focus:ring-[#E8B4B8] outline-none text-sm" style="border-color: var(--sakura-pink);"></textarea>
+                        class="w-full px-4 py-3 bg-white/70 rounded-2xl border border-pink-100 focus:ring-2 focus:ring-[#eebecb] outline-none text-sm text-[#5d4037]"></textarea>
                     <button onclick="handleReviewSubmit()" class="btn-kawaii w-full py-3 font-bold text-lg">
                         เสร็จสิ้นการรีวิว ✨
                     </button>
@@ -322,15 +312,15 @@
             <!-- Recent Reviews -->
             <div class="kawaii-card p-5 mb-8">
                 <div class="flex justify-between items-center mb-4">
-                    <h4 class="font-bold flex items-center gap-2"><span class="text-xl">🌟</span> รีวิวล่าสุด</h4>
-                    <button onclick="switchView('list')" class="text-xs hover:opacity-70" style="color: var(--deep-sakura);">ทั้งหมด ➔</button>
+                    <h4 class="font-bold flex items-center gap-2 text-[#5d4037]"><span class="text-xl">🌟</span> รีวิวล่าสุด</h4>
+                    <button onclick="switchView('list')" class="text-xs text-[#d48a98] hover:text-[#5d4037]">ทั้งหมด ➔</button>
                 </div>
                 <div id="recent-reviews" class="space-y-3">
                     <p class="text-xs text-center py-4 opacity-40 italic">กำลังโหลดข้อมูลน่ารักๆ...</p>
                 </div>
             </div>
 
-            <button onclick="switchView('list')" class="w-full py-4 rounded-3xl font-bold bg-white border-2 border-pink-200 hover:bg-pink-50 transition-all flex items-center justify-center gap-2" style="border-color: var(--sakura-pink); color: var(--deep-sakura);">
+            <button onclick="switchView('list')" class="w-full py-4 rounded-3xl font-bold bg-white border-2 border-[#eebecb] text-[#d48a98] hover:bg-pink-50 transition-all flex items-center justify-center gap-2">
                 ไปดูรีวิวทั้งหมด <span class="text-xl">🐾</span>
             </button>
         </div>
@@ -346,27 +336,27 @@
                 <button onclick="setFilter(1)" class="filter-chip flex-shrink-0" id="filter-1">🌸 1</button>
             </div>
             <div class="kawaii-card p-5 min-h-[60vh] flex flex-col">
-                <div class="flex justify-between items-center text-[10px] font-bold mb-5 border-b border-pink-50 pb-3" style="border-color: var(--sakura-pink); color: var(--sakura-pink);">
+                <div class="flex justify-between items-center text-[10px] font-bold text-[#d48a98] mb-5 border-b border-pink-50 pb-3">
                     <span id="page-count-display">จำนวน : 0 หน้า</span>
-                    <button onclick="nextPage()" id="next-page-btn" class="flex items-center gap-1 hover:opacity-70">
+                    <button onclick="nextPage()" id="next-page-btn" class="flex items-center gap-1 hover:text-[#5d4037]">
                         หน้าถัดไป <span class="text-lg">➔</span>
                     </button>
                 </div>
                 <div id="full-review-list" class="space-y-5 flex-grow"></div>
-                <div id="empty-state" class="hidden py-20 text-center opacity-40 italic text-sm">ยังไม่มีรีวิวในหมวดนี้เลยน้า.. 🐾</div>
+                <div id="empty-state" class="hidden py-20 text-center text-[#d48a98] opacity-50 italic text-sm">ยังไม่มีรีวิวในหมวดนี้เลยน้า.. 🐾</div>
             </div>
-            <button onclick="switchView('home')" class="w-full mt-6 py-4 rounded-3xl font-bold bg-white border-2 border-pink-200 hover:bg-pink-50 transition-all" style="border-color: var(--sakura-pink); color: var(--deep-sakura);">⬅ กลับไปหน้าหลัก</button>
+            <button onclick="switchView('home')" class="w-full mt-6 py-4 rounded-3xl font-bold bg-white border-2 border-[#eebecb] text-[#d48a98] hover:bg-pink-50 transition-all">⬅ กลับไปหน้าหลัก</button>
         </div>
     </div>
 </div>
 
 <!-- Modals -->
-<div id="confirm-modal" class="fixed inset-0 z-50 flex items-center justify-center p-6 hidden backdrop-blur-sm bg-pink-100/20">
+<div id="confirm-modal" class="fixed inset-0 z-50 flex items-center justify-center p-6 hidden backdrop-blur-sm bg-[#5c4044]/20">
     <div class="kawaii-card bg-white p-8 max-w-xs w-full text-center shadow-2xl scale-110">
         <div class="text-4xl mb-4">💌</div>
-        <h3 class="font-bold text-xl mb-6" style="color: var(--deep-sakura);">ตรวจสอบความเรียบร้อย?</h3>
+        <h3 class="font-bold text-xl mb-6 text-[#d48a98]">ตรวจสอบความเรียบร้อย?</h3>
         <div class="flex gap-3">
-            <button onclick="closeModal('confirm-modal')" class="flex-1 py-3 rounded-2xl bg-gray-50 border border-gray-100 text-sm font-bold">ยังก่อน</button>
+            <button onclick="closeModal('confirm-modal')" class="flex-1 py-3 rounded-2xl bg-gray-50 border border-gray-100 text-sm font-bold text-gray-400">ยังก่อน</button>
             <button onclick="confirmSubmit()" class="flex-1 py-3 btn-kawaii text-sm font-bold">ยืนยันเลย!</button>
         </div>
     </div>
@@ -375,7 +365,7 @@
 <div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center p-6 hidden backdrop-blur-md bg-white/40">
     <div class="kawaii-card bg-white p-10 max-w-xs w-full text-center border-none shadow-2xl animate-bounce">
         <div class="text-6xl mb-4">🌸✨</div>
-        <h3 class="font-bold text-2xl mb-3 font-handwriting" style="color: var(--deep-sakura);">สำเร็จแล้ววว!</h3>
+        <h3 class="font-bold text-2xl text-[#d48a98] mb-3 font-handwriting">สำเร็จแล้ววว!</h3>
         <p class="text-sm text-gray-500 mb-6">ขอบคุณที่รีวิวให้นะค้าบ</p>
         <button onclick="closeModal('success-modal')" class="w-full py-3 btn-kawaii font-bold">ปิดหน้าต่าง 🐾</button>
     </div>
@@ -386,11 +376,12 @@
     import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
     import { getFirestore, collection, addDoc, onSnapshot, query } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
+    // Firebase Initialization
     const firebaseConfig = JSON.parse(__firebase_config);
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore(app);
-    const appId = typeof __app_id !== 'undefined' ? __app_id : 'poe-shop-v2';
+    const appId = typeof __app_id !== 'undefined' ? __app_id : 'poe-shop-v2-vintage';
 
     let user = null;
     let allReviews = [];
@@ -399,20 +390,22 @@
     let currentPage = 1;
     const itemsPerPage = 7;
 
+    // Sakura Background Animation
     const createPetal = () => {
         const bg = document.getElementById('sakura-bg');
         if (!bg) return;
         const petal = document.createElement('div');
         petal.className = 'petal';
-        const size = Math.random() * 10 + 10;
+        const size = Math.random() * 8 + 10;
         petal.style.width = `${size}px`; petal.style.height = `${size}px`;
         petal.style.left = `${Math.random() * 100}vw`;
-        petal.style.animationDuration = `${Math.random() * 3 + 4}s`;
+        petal.style.animationDuration = `${Math.random() * 3 + 5}s`;
         bg.appendChild(petal);
-        setTimeout(() => petal.remove(), 7000);
+        setTimeout(() => petal.remove(), 8000);
     };
-    setInterval(createPetal, 800);
+    setInterval(createPetal, 700);
 
+    // Star Rating Interaction
     const icons = document.querySelectorAll('.sakura-rating');
     icons.forEach(icon => {
         icon.addEventListener('click', () => {
@@ -421,11 +414,16 @@
         });
     });
 
+    // Anonymous Login Implementation (Rule 3)
     const init = async () => {
-        if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-            await signInWithCustomToken(auth, __initial_auth_token);
-        } else {
-            await signInAnonymously(auth);
+        try {
+            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                await signInWithCustomToken(auth, __initial_auth_token);
+            } else {
+                await signInAnonymously(auth);
+            }
+        } catch (err) {
+            console.error("Auth failed:", err);
         }
     };
 
@@ -436,7 +434,7 @@
             onSnapshot(reviewsRef, (snap) => {
                 allReviews = snap.docs.map(d => ({id: d.id, ...d.data()})).sort((a,b) => b.timestamp - a.timestamp);
                 updateUI();
-            });
+            }, (error) => console.error("Firestore error:", error));
         }
     });
 
@@ -487,12 +485,12 @@
         const recentBox = document.getElementById('recent-reviews');
         if (recent.length > 0) {
             recentBox.innerHTML = recent.map(r => `
-                <div class="bg-white/60 p-3 rounded-2xl border border-pink-50 text-[11px]" style="border-color: var(--sakura-pink);">
+                <div class="bg-white/60 p-3 rounded-2xl border border-pink-50 text-[11px] animate-fade-in shadow-sm">
                     <div class="flex justify-between mb-1">
-                        <span class="font-bold" style="color: var(--deep-sakura);">${r.name}</span>
+                        <span class="font-bold text-[#d48a98]">${r.name}</span>
                         <span>${'🌸'.repeat(r.rating)}</span>
                     </div>
-                    <p class="text-gray-500 truncate">${r.comment}</p>
+                    <p class="text-[#5d4037] truncate opacity-80">${r.comment}</p>
                 </div>
             `).join('');
         } else {
@@ -512,13 +510,13 @@
         if (pageData.length > 0) {
             empty.classList.add('hidden');
             list.innerHTML = pageData.map(r => `
-                <div class="bg-pink-50/30 p-4 rounded-2xl border-l-4" style="border-color: var(--sakura-pink);">
+                <div class="bg-pink-50/20 p-4 rounded-2xl border-l-4 border-[#eebecb] shadow-sm">
                     <div class="flex justify-between items-center mb-2">
-                        <span class="font-bold text-sm flex items-center gap-1" style="color: var(--deep-sakura);">🐾 ${r.name}</span>
-                        <div class="text-[10px] opacity-40">${new Date(r.timestamp).toLocaleDateString('th-TH')}</div>
+                        <span class="font-bold text-sm flex items-center gap-1 text-[#5d4037]">🐾 ${r.name}</span>
+                        <div class="text-[10px] opacity-40 font-bold">${new Date(r.timestamp).toLocaleDateString('th-TH')}</div>
                     </div>
-                    <div class="text-xs mb-2">${'🌸'.repeat(r.rating)}</div>
-                    <div class="text-sm text-gray-600 font-medium leading-relaxed bg-white/50 p-3 rounded-xl border border-white">${r.comment}</div>
+                    <div class="text-xs text-[#d48a98] mb-2">${'🌸'.repeat(r.rating)}</div>
+                    <div class="text-sm text-[#5d4037] font-medium leading-relaxed bg-white/60 p-3 rounded-xl border border-white/50">${r.comment}</div>
                 </div>
             `).join('');
         } else {
@@ -552,15 +550,21 @@
         if (!user) return;
         const name = document.getElementById('reviewer-name').value;
         const comment = document.getElementById('review-comment').value;
-        await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'reviews'), {
-            name, comment, rating: currentRating, timestamp: Date.now(), uid: user.uid
-        });
-        document.getElementById('reviewer-name').value = ''; document.getElementById('review-comment').value = '';
-        currentRating = 0; icons.forEach(i => i.classList.remove('active'));
-        closeModal('confirm-modal'); document.getElementById('success-modal').classList.remove('hidden');
+        try {
+            await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'reviews'), {
+                name, comment, rating: currentRating, timestamp: Date.now(), uid: user.uid
+            });
+            document.getElementById('reviewer-name').value = ''; document.getElementById('review-comment').value = '';
+            currentRating = 0; icons.forEach(i => i.classList.remove('active'));
+            closeModal('confirm-modal'); document.getElementById('success-modal').classList.remove('hidden');
+        } catch (e) {
+            console.error("Submit failed:", e);
+        }
     };
 
     window.closeModal = (id) => document.getElementById(id).classList.add('hidden');
+    
+    // Start Initialization
     init();
 </script>
 </body>
