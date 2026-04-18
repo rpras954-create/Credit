@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -8,19 +9,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&family=Itim&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* ปรับโทนสีตามรูปภาพ: Dusty Rose & Vintage Cream */
-            --soft-pink: #F9EBEB;
-            --matcha-green: #E8DFD8; /* เปลี่ยนเป็นสีครีมเบจ */
-            --sakura-pink: #E5A9A9;
-            --deep-sakura: #C98282;
-            --text-brown: #705C5C;
+            /* โทนสีใหม่ตามรูปภาพ: Vintage Dusty Rose & Cream */
+            --soft-pink: #F9F1F1; /* พื้นหลังชมพูครีมหม่น */
+            --matcha-green: #F4EBE8; /* สีครีมเบจหม่น */
+            --sakura-pink: #E8B4B8; /* ชมพู Dusty Rose (สีหลัก) */
+            --deep-sakura: #A4777E; /* ชมพูเข้มหม่น สำหรับข้อความ/ปุ่ม */
+            --text-brown: #7D5A5A; /* น้ำตาลหม่นโทนอุ่น */
             --glass-white: rgba(255, 255, 255, 0.88);
             
-            /* Chart Colors - โทนกุหลาบแห้ง */
-            --c-5: #D48B8B;
-            --c-4: #E2AFAF;
-            --c-3: #ECCCCC;
-            --c-low: #F5E6E6;
+            /* Chart Colors (โทนหม่นให้เข้ากับรูป) */
+            --c-5: #E8B4B8;
+            --c-4: #F0D1D4;
+            --c-3: #F4E1E3;
+            --c-low: #F9F1F1;
         }
 
         body {
@@ -30,7 +31,8 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-            background-image: radial-gradient(#D4A5A5 0.5px, transparent 0.5px);
+            /* ปรับลายพื้นหลังให้จางลงแบบวินเทจ */
+            background-image: radial-gradient(#E8B4B8 0.5px, transparent 0.5px);
             background-size: 24px 24px;
         }
 
@@ -56,7 +58,7 @@
         }
         .petal {
             position: absolute;
-            background-color: #E2AFAF;
+            background-color: #E8B4B8; /* สีกลีบดอกไม้โทนหม่น */
             border-radius: 150% 0 150% 0;
             opacity: 0.4;
             animation: fall linear infinite;
@@ -71,7 +73,7 @@
             border: 2px dashed var(--sakura-pink);
             border-radius: 24px;
             backdrop-filter: blur(10px);
-            box-shadow: 0 8px 25px rgba(141, 119, 119, 0.15);
+            box-shadow: 0 8px 25px rgba(125, 90, 90, 0.1);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .kawaii-card:hover { transform: scale(1.01); }
@@ -81,7 +83,7 @@
             color: white;
             border: none;
             border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(201, 130, 130, 0.3);
+            box-shadow: 0 4px 15px rgba(164, 119, 126, 0.3);
             transition: all 0.2s;
             cursor: pointer;
         }
@@ -91,13 +93,11 @@
             font-size: 2rem;
             cursor: pointer;
             transition: transform 0.2s, filter 0.2s;
-            filter: grayscale(1) brightness(1.1);
-            opacity: 0.6;
+            filter: grayscale(1) opacity(0.5);
         }
         .sakura-rating.active {
             filter: grayscale(0) drop-shadow(0 0 5px var(--sakura-pink));
             transform: scale(1.1) rotate(10deg);
-            opacity: 1;
         }
 
         .filter-chip {
@@ -112,17 +112,19 @@
         .filter-chip.active {
             background: var(--sakura-pink);
             color: white;
+            border-color: var(--sakura-pink);
         }
 
         .lace-top {
             width: 100%;
             height: 30px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0 20 C 10 0, 15 0, 25 20 C 35 0, 40 0, 50 20 C 60 0, 65 0, 75 20 C 85 0, 90 0, 100 20 L 100 20 L 0 20 Z" fill="%23E5A9A9"/></svg>');
+            /* ปรับสีลูกไม้ให้เป็นโทน Dusty Pink */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0 20 C 10 0, 15 0, 25 20 C 35 0, 40 0, 50 20 C 60 0, 65 0, 75 20 C 85 0, 90 0, 100 20 L 100 20 L 0 20 Z" fill="%23E8B4B8"/></svg>');
             background-size: 60px 20px;
             transform: rotate(180deg);
         }
 
-        /* --- Chart Styles --- */
+        /* --- Updated Chart Styles --- */
         .chart-wrapper {
             position: relative;
             width: 85px; 
@@ -143,7 +145,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.03);
         }
 
         /* Bubble Style */
@@ -152,6 +154,7 @@
             background: #ffffff;
             border-radius: 20px;
             border: 2px solid var(--sakura-pink);
+            color: var(--text-brown);
         }
         .speech-bubble::after {
             content: '';
@@ -167,6 +170,11 @@
 
         .view-fade { animation: fadeIn 0.4s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* สีกรอบและเงาแบบนุ่มนวล */
+        .border-pink-custom { border-color: var(--sakura-pink); }
+        .text-pink-custom { color: var(--deep-sakura); }
+        .bg-pink-custom { background-color: var(--sakura-pink); }
     </style>
 </head>
 <body>
@@ -178,65 +186,76 @@
 
     <div class="max-w-md mx-auto px-5">
         
+        <!-- View 1: Home -->
         <div id="home-view" class="view-fade">
             <header class="text-center mb-6">
+                <!-- Badges (ปุ่มกลมเล็กๆ ด้านบน - ปรับสีตามโทนหม่น) -->
                 <div class="flex justify-center gap-2 mb-3">
-                    <div class="w-3 h-3 rounded-full bg-[#E2AFAF] border border-white shadow-sm"></div>
-                    <div class="w-3 h-3 rounded-full bg-[#D8C3C3] border border-white shadow-sm"></div>
-                    <div class="w-3 h-3 rounded-full bg-[#C98282] border border-white shadow-sm"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#E8B4B8] border border-white shadow-sm"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#F4EBE8] border border-white shadow-sm"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#A4777E] border border-white shadow-sm"></div>
                 </div>
-                <h1 class="text-3xl font-bold text-[#B07474] font-handwriting tracking-wide">Poe's Shop Review</h1>
-                <p class="text-xs text-[#C98282] mt-1 opacity-80 uppercase tracking-widest font-bold">ขอบคุณทุกๆ รีวิวเลยนะค้าบ 🌸</p>
+                <h1 class="text-3xl font-bold text-pink-custom font-handwriting tracking-wide">Poe's Shop Review</h1>
+                <p class="text-xs text-pink-400 mt-1 opacity-80 uppercase tracking-widest font-bold" style="color: var(--deep-sakura);">ขอบคุณทุกๆ รีวิวเลยนะค้าบ 🌸</p>
             </header>
 
+            <!-- Hero Image -->
             <div class="relative mb-6 group">
-                <div class="absolute -inset-1 bg-gradient-to-r from-[#ECCCCC] to-[#E8DFD8] rounded-[30px] blur opacity-50"></div>
+                <div class="absolute -inset-1 bg-gradient-to-r from-[#E8B4B8] to-[#F4EBE8] rounded-[30px] blur opacity-40"></div>
                 <div class="relative bg-white rounded-[25px] overflow-hidden border-4 border-white shadow-lg">
-                    <img src="https://i.postimg.cc/m2V0NmPC/b398ccae2e83ac5d6f33d737e46f6849.jpg" alt="Poe Shop" class="w-full">
+                    <!-- รูปภาพหลัก (ใช้รูปเดิมแต่เพิ่ม filter ให้นุ่มนวลขึ้น) -->
+                    <img src="https://i.postimg.cc/m2V0NmPC/b398ccae2e83ac5d6f33d737e46f6849.jpg" alt="Poe Shop" class="w-full opacity-90">
                 </div>
-                <div class="absolute -top-4 -right-2 float-icon text-3xl">🌸</div>
-                <div class="absolute -bottom-4 -left-2 float-icon text-3xl" style="animation-delay: 1s;">🌹</div>
+                <div class="absolute -top-4 -right-2 float-icon text-3xl">🐾</div>
+                <div class="absolute -bottom-4 -left-2 float-icon text-3xl" style="animation-delay: 1s;">🐈</div>
             </div>
 
+            <!-- Sweet Welcome Message -->
             <div class="mb-8 relative px-2">
                 <div class="flex items-end gap-3">
-                    <div class="flex-shrink-0 bg-white p-2 rounded-2xl border-2 border-[#F5E6E6] shadow-sm float-icon">
+                    <!-- Cute Mascot Icon -->
+                    <div class="flex-shrink-0 bg-white p-2 rounded-2xl border-2 border-pink-100 shadow-sm float-icon" style="border-color: var(--sakura-pink);">
                         <span class="text-3xl">🐇</span>
                     </div>
-                    <div class="speech-bubble flex-grow p-3 shadow-sm bg-white/80">
-                        <p class="text-[11px] leading-tight text-[#B07474] font-bold italic">
+                    <!-- Speech Bubble -->
+                    <div class="speech-bubble flex-grow p-3 shadow-sm bg-white/90">
+                        <p class="text-[11px] leading-tight font-bold italic" style="color: var(--text-brown);">
                              "ขอบคุณที่มาอุดหนุนร้านเล็กๆของเป้อนะค้าบ🎀✨️"
                         </p>
                     </div>
                 </div>
+                <!-- Floating hearts -->
                 <div class="absolute -right-1 -top-2 text-xs pulse-kawaii">🤎</div>
                 <div class="absolute right-4 bottom-0 text-[10px] pulse-kawaii" style="animation-delay: 1s;">✨</div>
             </div>
 
+            <!-- Dashboard Stats -->
             <div class="kawaii-card p-5 mb-6">
-                <div class="flex justify-between items-end mb-4 border-b border-[#F5E6E6] pb-2">
-                    <h3 class="text-xs font-bold text-[#B07474] flex items-center gap-2">
+                <div class="flex justify-between items-end mb-4 border-b border-pink-50 pb-2" style="border-color: var(--sakura-pink);">
+                    <h3 class="text-xs font-bold flex items-center gap-2" style="color: var(--deep-sakura);">
                         <span class="text-lg">📊</span> สรุปความประทับใจ
                     </h3>
                     <div class="text-right">
                         <p class="text-[9px] text-gray-400 uppercase tracking-widest font-bold">TOTAL REVIEWS</p>
-                        <p class="text-2xl font-bold text-[#B07474] leading-none" id="total-count">0</p>
+                        <p class="text-2xl font-bold leading-none" id="total-count" style="color: var(--deep-sakura);">0</p>
                     </div>
                 </div>
 
                 <div class="flex items-center justify-around gap-2">
+                    <!-- Multi-color Donut Chart -->
                     <div id="multi-chart" class="chart-wrapper flex-shrink-0 border-4 border-white shadow-sm">
                         <div class="chart-center">
-                            <span id="percent-display" class="text-sm font-bold text-[#B07474] leading-none">0%</span>
-                            <span class="text-[7px] text-[#C98282] font-bold">Satisfied</span>
+                            <span id="percent-display" class="text-sm font-bold leading-none" style="color: var(--deep-sakura);">0%</span>
+                            <span class="text-[7px] font-bold" style="color: var(--sakura-pink);">Satisfied</span>
                         </div>
                     </div>
 
+                    <!-- Enhanced Raw Data with % -->
                     <div class="flex-grow grid grid-cols-2 gap-x-3 gap-y-2 max-w-[180px]">
                         <div class="flex flex-col">
                             <div class="flex justify-between items-center mb-0.5">
                                 <span class="text-[10px] flex items-center gap-1">🌸 5</span>
-                                <span id="count-5" class="text-[11px] font-bold text-[#B07474]">0</span>
+                                <span id="count-5" class="text-[11px] font-bold" style="color: var(--deep-sakura);">0</span>
                             </div>
                             <div class="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
                                 <div id="bar-5" class="h-full bg-[var(--c-5)]" style="width: 0%"></div>
@@ -246,7 +265,7 @@
                         <div class="flex flex-col">
                             <div class="flex justify-between items-center mb-0.5">
                                 <span class="text-[10px] flex items-center gap-1">🌸 4</span>
-                                <span id="count-4" class="text-[11px] font-bold text-[#B07474]">0</span>
+                                <span id="count-4" class="text-[11px] font-bold" style="color: var(--deep-sakura);">0</span>
                             </div>
                             <div class="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
                                 <div id="bar-4" class="h-full bg-[var(--c-4)]" style="width: 0%"></div>
@@ -256,7 +275,7 @@
                         <div class="flex flex-col">
                             <div class="flex justify-between items-center mb-0.5">
                                 <span class="text-[10px] flex items-center gap-1">🌸 3</span>
-                                <span id="count-3" class="text-[11px] font-bold text-[#B07474]">0</span>
+                                <span id="count-3" class="text-[11px] font-bold" style="color: var(--deep-sakura);">0</span>
                             </div>
                             <div class="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
                                 <div id="bar-3" class="h-full bg-[var(--c-3)]" style="width: 0%"></div>
@@ -266,7 +285,7 @@
                         <div class="flex flex-col">
                             <div class="flex justify-between items-center mb-0.5">
                                 <span class="text-[10px] flex items-center gap-1">🌸 2-1</span>
-                                <span id="count-low" class="text-[11px] font-bold text-[#B07474]">0</span>
+                                <span id="count-low" class="text-[11px] font-bold" style="color: var(--deep-sakura);">0</span>
                             </div>
                             <div class="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
                                 <div id="bar-low" class="h-full bg-[var(--c-low)]" style="width: 0%"></div>
@@ -279,8 +298,9 @@
                 <span id="count-1" class="hidden">0</span>
             </div>
 
+            <!-- Review Input -->
             <div class="kawaii-card p-6 mb-8">
-                <h3 class="text-center font-bold text-lg mb-4 text-[#B07474] font-handwriting">ส่งรีวิวให้ร้านเป้อ 💬</h3>
+                <h3 class="text-center font-bold text-lg mb-4 font-handwriting" style="color: var(--deep-sakura);">ส่งรีวิวให้ร้านเป้อ 💬</h3>
                 <div class="flex justify-center gap-2 mb-5" id="rating-input">
                     <span class="sakura-rating" data-value="1">🌸</span>
                     <span class="sakura-rating" data-value="2">🌸</span>
@@ -290,30 +310,32 @@
                 </div>
                 <div class="space-y-4">
                     <input type="text" id="reviewer-name" placeholder="ชื่อเล่นของคุณ..." 
-                        class="w-full px-4 py-3 bg-white/70 rounded-2xl border border-[#F5E6E6] focus:ring-2 focus:ring-[#E5A9A9] outline-none text-sm text-[#705C5C]">
+                        class="w-full px-4 py-3 bg-white/70 rounded-2xl border border-pink-100 focus:ring-2 focus:ring-[#E8B4B8] outline-none text-sm" style="border-color: var(--sakura-pink);">
                     <textarea id="review-comment" placeholder="ความประทับใจต่อทางร้าน..." rows="3" 
-                        class="w-full px-4 py-3 bg-white/70 rounded-2xl border border-[#F5E6E6] focus:ring-2 focus:ring-[#E5A9A9] outline-none text-sm text-[#705C5C]"></textarea>
+                        class="w-full px-4 py-3 bg-white/70 rounded-2xl border border-pink-100 focus:ring-2 focus:ring-[#E8B4B8] outline-none text-sm" style="border-color: var(--sakura-pink);"></textarea>
                     <button onclick="handleReviewSubmit()" class="btn-kawaii w-full py-3 font-bold text-lg">
                         เสร็จสิ้นการรีวิว ✨
                     </button>
                 </div>
             </div>
 
+            <!-- Recent Reviews -->
             <div class="kawaii-card p-5 mb-8">
                 <div class="flex justify-between items-center mb-4">
-                    <h4 class="font-bold flex items-center gap-2 text-[#B07474]"><span class="text-xl">🌟</span> รีวิวล่าสุด</h4>
-                    <button onclick="switchView('list')" class="text-xs text-[#C98282] hover:text-[#B07474]">ทั้งหมด ➔</button>
+                    <h4 class="font-bold flex items-center gap-2"><span class="text-xl">🌟</span> รีวิวล่าสุด</h4>
+                    <button onclick="switchView('list')" class="text-xs hover:opacity-70" style="color: var(--deep-sakura);">ทั้งหมด ➔</button>
                 </div>
                 <div id="recent-reviews" class="space-y-3">
-                    <p class="text-xs text-center py-4 opacity-40 italic">กำลังโหลดข้อมูลนวลๆ...</p>
+                    <p class="text-xs text-center py-4 opacity-40 italic">กำลังโหลดข้อมูลน่ารักๆ...</p>
                 </div>
             </div>
 
-            <button onclick="switchView('list')" class="w-full py-4 rounded-3xl font-bold bg-white border-2 border-[#ECCCCC] text-[#C98282] hover:bg-[#FFF5F5] transition-all flex items-center justify-center gap-2">
+            <button onclick="switchView('list')" class="w-full py-4 rounded-3xl font-bold bg-white border-2 border-pink-200 hover:bg-pink-50 transition-all flex items-center justify-center gap-2" style="border-color: var(--sakura-pink); color: var(--deep-sakura);">
                 ไปดูรีวิวทั้งหมด <span class="text-xl">🐾</span>
             </button>
         </div>
 
+        <!-- View 2: List -->
         <div id="list-view" class="hidden view-fade">
             <div class="flex overflow-x-auto gap-2 mb-6 no-scrollbar py-2">
                 <button onclick="setFilter('all')" class="filter-chip active flex-shrink-0" id="filter-all">ทั้งหมด</button>
@@ -324,24 +346,25 @@
                 <button onclick="setFilter(1)" class="filter-chip flex-shrink-0" id="filter-1">🌸 1</button>
             </div>
             <div class="kawaii-card p-5 min-h-[60vh] flex flex-col">
-                <div class="flex justify-between items-center text-[10px] font-bold text-[#D4A5A5] mb-5 border-b border-[#F5E6E6] pb-3">
+                <div class="flex justify-between items-center text-[10px] font-bold mb-5 border-b border-pink-50 pb-3" style="border-color: var(--sakura-pink); color: var(--sakura-pink);">
                     <span id="page-count-display">จำนวน : 0 หน้า</span>
-                    <button onclick="nextPage()" id="next-page-btn" class="flex items-center gap-1 hover:text-[#B07474]">
+                    <button onclick="nextPage()" id="next-page-btn" class="flex items-center gap-1 hover:opacity-70">
                         หน้าถัดไป <span class="text-lg">➔</span>
                     </button>
                 </div>
                 <div id="full-review-list" class="space-y-5 flex-grow"></div>
-                <div id="empty-state" class="hidden py-20 text-center text-[#D8C3C3] italic text-sm">ยังไม่มีรีวิวในหมวดนี้เลยน้า.. 🐾</div>
+                <div id="empty-state" class="hidden py-20 text-center opacity-40 italic text-sm">ยังไม่มีรีวิวในหมวดนี้เลยน้า.. 🐾</div>
             </div>
-            <button onclick="switchView('home')" class="w-full mt-6 py-4 rounded-3xl font-bold bg-white border-2 border-[#ECCCCC] text-[#C98282] hover:bg-[#FFF5F5] transition-all">⬅ กลับไปหน้าหลัก</button>
+            <button onclick="switchView('home')" class="w-full mt-6 py-4 rounded-3xl font-bold bg-white border-2 border-pink-200 hover:bg-pink-50 transition-all" style="border-color: var(--sakura-pink); color: var(--deep-sakura);">⬅ กลับไปหน้าหลัก</button>
         </div>
     </div>
 </div>
 
-<div id="confirm-modal" class="fixed inset-0 z-50 flex items-center justify-center p-6 hidden backdrop-blur-sm bg-[#B07474]/10">
+<!-- Modals -->
+<div id="confirm-modal" class="fixed inset-0 z-50 flex items-center justify-center p-6 hidden backdrop-blur-sm bg-pink-100/20">
     <div class="kawaii-card bg-white p-8 max-w-xs w-full text-center shadow-2xl scale-110">
         <div class="text-4xl mb-4">💌</div>
-        <h3 class="font-bold text-xl mb-6 text-[#B07474]">ตรวจสอบความเรียบร้อย?</h3>
+        <h3 class="font-bold text-xl mb-6" style="color: var(--deep-sakura);">ตรวจสอบความเรียบร้อย?</h3>
         <div class="flex gap-3">
             <button onclick="closeModal('confirm-modal')" class="flex-1 py-3 rounded-2xl bg-gray-50 border border-gray-100 text-sm font-bold">ยังก่อน</button>
             <button onclick="confirmSubmit()" class="flex-1 py-3 btn-kawaii text-sm font-bold">ยืนยันเลย!</button>
@@ -352,7 +375,7 @@
 <div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center p-6 hidden backdrop-blur-md bg-white/40">
     <div class="kawaii-card bg-white p-10 max-w-xs w-full text-center border-none shadow-2xl animate-bounce">
         <div class="text-6xl mb-4">🌸✨</div>
-        <h3 class="font-bold text-2xl text-[#B07474] mb-3 font-handwriting">สำเร็จแล้ววว!</h3>
+        <h3 class="font-bold text-2xl mb-3 font-handwriting" style="color: var(--deep-sakura);">สำเร็จแล้ววว!</h3>
         <p class="text-sm text-gray-500 mb-6">ขอบคุณที่รีวิวให้นะค้าบ</p>
         <button onclick="closeModal('success-modal')" class="w-full py-3 btn-kawaii font-bold">ปิดหน้าต่าง 🐾</button>
     </div>
@@ -388,7 +411,7 @@
         bg.appendChild(petal);
         setTimeout(() => petal.remove(), 7000);
     };
-    setInterval(createPetal, 600);
+    setInterval(createPetal, 800);
 
     const icons = document.querySelectorAll('.sakura-rating');
     icons.forEach(icon => {
@@ -464,10 +487,10 @@
         const recentBox = document.getElementById('recent-reviews');
         if (recent.length > 0) {
             recentBox.innerHTML = recent.map(r => `
-                <div class="bg-white/60 p-3 rounded-2xl border border-[#F5E6E6] text-[11px]">
+                <div class="bg-white/60 p-3 rounded-2xl border border-pink-50 text-[11px]" style="border-color: var(--sakura-pink);">
                     <div class="flex justify-between mb-1">
-                        <span class="font-bold text-[#B07474]">${r.name}</span>
-                        <span class="text-[#E5A9A9]">${'🌸'.repeat(r.rating)}</span>
+                        <span class="font-bold" style="color: var(--deep-sakura);">${r.name}</span>
+                        <span>${'🌸'.repeat(r.rating)}</span>
                     </div>
                     <p class="text-gray-500 truncate">${r.comment}</p>
                 </div>
@@ -489,12 +512,12 @@
         if (pageData.length > 0) {
             empty.classList.add('hidden');
             list.innerHTML = pageData.map(r => `
-                <div class="bg-[#F9EBEB]/50 p-4 rounded-2xl border-l-4 border-[#E5A9A9]">
+                <div class="bg-pink-50/30 p-4 rounded-2xl border-l-4" style="border-color: var(--sakura-pink);">
                     <div class="flex justify-between items-center mb-2">
-                        <span class="font-bold text-sm flex items-center gap-1 text-[#705C5C]">🐾 ${r.name}</span>
-                        <div class="text-[10px] opacity-60 text-[#8D7777]">${new Date(r.timestamp).toLocaleDateString('th-TH')}</div>
+                        <span class="font-bold text-sm flex items-center gap-1" style="color: var(--deep-sakura);">🐾 ${r.name}</span>
+                        <div class="text-[10px] opacity-40">${new Date(r.timestamp).toLocaleDateString('th-TH')}</div>
                     </div>
-                    <div class="text-xs text-[#E5A9A9] mb-2">${'🌸'.repeat(r.rating)}</div>
+                    <div class="text-xs mb-2">${'🌸'.repeat(r.rating)}</div>
                     <div class="text-sm text-gray-600 font-medium leading-relaxed bg-white/50 p-3 rounded-xl border border-white">${r.comment}</div>
                 </div>
             `).join('');
@@ -541,4 +564,4 @@
     init();
 </script>
 </body>
-</html>
+    </html>
